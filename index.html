@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Illustration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Poppins', sans-serif; background: white; color: #111; line-height: 1.6; }
+
+        /* NAVBAR */
+        .nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 5%;
+    background:#ffffff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    z-index:1000;
+}
+        .logo img { height:50px; }
+        .nav-links { display:flex; gap:30px; list-style:none; }
+        .nav-links a { color:#111; text-decoration:none; font-weight:500; }
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+}
+
+.hero{
+height:100vh;
+background:url("images/hero.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+padding:20px;
+}
+
+.hero-overlay{
+max-width:700px;
+text-align:center;
+color:white;  /* ← यही missing था */
+}
+
+/* TITLE */
+.hero-title{
+font-size:clamp(28px,6vw,48px);
+font-weight:700;
+white-space:normal;
+
+background:linear-gradient(90deg,#ff7a18,#0a1f8f); /* ← यही change करो */
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+/* TEXT */
+.hero-overlay p{
+font-size:clamp(14px,3.5vw,18px);
+margin-bottom:20px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+.cta-button{
+padding:12px 28px;
+background:#5c63ff;
+color:white;
+border-radius:25px;
+text-decoration:none;
+font-weight:500;
+}
+
+.grid-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:30px 5%;
+}
+#services{
+padding-top:40px;   /* gap कम करेगा */
+}
+#portfolio h2{
+text-align:center;
+font-size:42px;
+font-weight:700;
+margin-bottom:10px;
+margin-top:100px;
+padding-top:60px;
+}
+
+#portfolio p{
+text-align:center;
+font-size:18px;
+color:#777;
+margin-bottom:50px;
+}
+#services h2{
+text-align:center;
+font-size:42px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+#services p{
+text-align:center;
+font-size:18px;
+color:#777;
+margin-bottom:60px;
+} 
+.service-box{
+overflow:hidden;
+transition:all 0.3s ease;
+}
+
+.service-box img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+display:block;
+transition:transform 0.4s ease;
+}
+
+.service-box:hover img{
+transform:scale(1.1);
+}
+
+.service-box:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+.motto-box p{
+font-size:18px;
+margin-top:10px;
+}
+.number{
+font-size:40px;
+font-weight:700;
+}
+.motto-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+padding:40px 5%;
+}
+
+.motto-box{
+text-align:center;
+}
+
+.motto-box img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+}
+
+#services-provide{
+padding:80px 8%;
+text-align:center;
+}
+
+#services-provide h2{
+font-size:42px;
+margin-bottom:30px;
+}
+
+.services-provide-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.service-card{
+background:#f6f8fb;
+border-radius:12px;
+padding:15px;
+transition:0.3s;
+}
+
+.service-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.service-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+#about{
+padding:120px 8%;
+background:#f8f8f8;
+}
+
+.about-wrapper{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+/* LEFT IMAGES */
+
+.about-images{
+position:relative;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.about-images img{
+width:100%;
+border-radius:14px;
+object-fit:cover;
+}
+
+.img1{
+grid-row:span 2;
+height:350px;
+}
+
+.img2{
+height:160px;
+}
+
+.img3{
+height:160px;
+}
+
+/* RIGHT TEXT */
+
+.about-tag{
+color:#ff7a18;
+font-weight:600;
+letter-spacing:2px;
+font-size:14px;
+}
+
+.about-content h2{
+font-size:42px;
+margin:10px 0 20px;
+}
+
+.about-content p{
+color:#666;
+font-size:18px;
+line-height:1.6;
+margin-bottom:15px;
+}
+
+.about-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 28px;
+background:#ff7a18;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:500;
+}
+.why-section {
+    padding: 60px 8%;
+    background: #0a1f33; /* Dark background like original image */
+    color: white;
+}
+
+.why-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: center; /* Isse right side ke boxes aur left side ka text ek line mein center rahenge */
+    min-height: 500px; /* Container ko thodi height dena zaroori hai center dikhne ke liye */
+}
+
+.why-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical center ke liye */
+    align-items: center;     /* Horizontal center ke liye */
+    text-align: center;      /* Text lines ko center karne ke liye */
+}
+
+.why-left h2 {
+    font-size: 60px; /* Screenshot ke hisaab se font thoda bada kiya hai */
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+}
+.why-left p {
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.why-left img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.why-right {
+    flex: 1; /* Right side takes 50% */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.08); /* Transparent boxes */
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #5c63ff; /* Choti decorative line */
+}
+
+.why-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.why-card p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* Screen choti ho toh ek ke niche ek aa jaye */
+@media (max-width: 850px) {
+    .why-container {
+        flex-direction: column;
+    }
+}
+.testimonial-section{
+padding:80px 10%;
+background:#f5f5f5;
+}
+
+.testimonial-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.testimonial-header h2{
+font-size:38px;
+font-weight:700;
+}
+
+.testimonial-header span{
+font-weight:800;
+}
+
+.trust{
+margin-top:10px;
+color:#555;
+}
+
+.testimonial-container{
+display:flex;
+gap:60px;
+align-items:flex-start;
+}
+
+/* LEFT SIDE */
+
+.testimonial-left{
+width:250px;
+}
+
+.quote{
+font-size:80px;
+color:#ccc;
+}
+
+.testimonial-left h3{
+font-size:22px;
+}
+
+/* RIGHT SIDE */
+
+.testimonial-right{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.testimonial-card{
+background:white;
+padding:25px;
+border-radius:15px;
+width:280px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.stars{
+color:#1abc9c;
+margin-top:10px;
+font-size:18px;
+}
+
+.client{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.client img{
+width:40px;
+height:40px;
+border-radius:50%;
+object-fit:cover;
+}
+
+}
+
+.contact-area{
+width:100%;
+}
+
+/* TOP IMAGE AREA */
+
+.contact-hero{
+background:url("images/contact-bg.jpg") center/cover no-repeat;
+padding:120px 10%;
+text-align:center;
+color:black;
+}
+
+.contact-hero h2{
+font-size:42px;
+color:#ff7a18;
+margin-bottom:10px;
+}
+
+.contact-hero p{
+max-width:600px;
+margin:auto;
+opacity:0.9;
+}
+
+/* BOX SECTION */
+
+.contact-boxes{
+display:flex;
+justify-content:center;
+align-items:stretch;
+gap:40px;
+padding:80px 5%;
+max-width:900px;
+margin:auto;
+flex-wrap:wrap;
+}
+
+.contact-card{
+flex:1;
+min-width:280px;
+max-width:400px;
+
+padding:50px 30px;
+background:#ffffff;
+
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+transition:0.3s;
+}
+
+.contact-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(0,0,0,0.12);
+}
+.icon{
+font-size:35px;
+margin-bottom:15px;
+color:#ff7a18;
+}
+
+.contact-card h3{
+margin-bottom:10px;
+}
+
+.contact-card p{
+color:#777;
+}
+.insta-qr{
+width:160px;
+margin-top:15px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-card p{
+margin-top:8px;
+color:#555;
+}
+     .footer { padding:40px; text-align:center; border-top:1px solid #eee; margin-top: 50px;
+ }
+
+#progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:#5c63ff;
+width:0%;
+z-index:2000;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:80px;
+padding:80px;
+background:#fafafa;
+text-align:center;
+}
+
+.counter{
+font-size:48px;
+font-weight:700;
+color:#ff7a18;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+@media (max-width:900px){
+
+.motto-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.services-provide-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.about-wrapper{
+grid-template-columns:1fr;
+}
+
+.stats{
+flex-direction:column;
+gap:30px;
+}
+
+.testimonial-container{
+flex-direction:column;
+}
+
+.contact-boxes{
+flex-direction:column;
+}
+}
+/* Card ko clean look dene ke liye */
+.contact-card {
+    padding: 60px 40px;
+    background: #ffffff; /* Card ka background white rahega */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 450px;
+    border: 1px solid #f1f1f1;
+}
+
+.insta-qr {
+    width: 180px; 
+    height: auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    /* Agar image ke andar black border hai toh niche wali line help karegi */
+    object-fit: contain; 
+    background: white; 
+    padding: 10px; /* QR code ke charo taraf thodi white space */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* QR code ko thoda lift dene ke liye */
+}
+
+/* QR code ka size control karne ke liye */
+.insta-qr {
+    width: 150px; /* Size thoda chota kiya balance ke liye */
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* Email text ko thoda highlight karne ke liye */
+.contact-card p {
+    color: #555;
+    word-break: break-all; /* Mobile par text bahar nahi jayega */
+    margin-top: 5px;
+}
+.desktop-note{
+display:none;
+margin-top:15px;
+font-size:14px;
+color:#ccc;
+text-align:center;
+opacity:0.8;
+}
+
+/* HAMBURGER */
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:70px;
+right:0;
+width:100%;
+background:white;
+flex-direction:column;
+align-items:center;
+display:none;
+padding:20px 0;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.nav-links li{
+margin:10px 0;
+}
+
+}
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+    <nav class="nav">
+       <div class="nav-container">
+    <div class="logo"><img src="images/logo.png"></div>
+
+    <div class="menu-toggle">☰</div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+    </nav>
+
+   <section class="hero">
+
+<div class="hero-wrapper">
+
+<div class="hero-overlay" data-aos="fade-up">
+
+<h1 class="hero-title">Experience the real design innovation</h1>
+
+<p>
+Experience top-tier graphic design services designed to enhance branding,
+boost engagement and drive innovation for your business.
+</p>
+
+<div class="hero-buttons" data-aos="zoom-in" data-aos-delay="300">
+<a href="#services-provide" class="cta-button">Request a Design</a>
+<a href="#contact" class="cta-button">Reach Out</a>
+</div>
+<p class="desktop-note">For best experience, please view in desktop mode</p>
+
+</div>
+
+</div>
+</section>
+
+<section id="about">
+
+<div class="about-wrapper">
+
+<div class="about-images" data-aos="fade-right">
+<img src="images/about us 1.jpg" class="img1">
+<img src="images/about us 2.jpg" class="img2">
+<img src="images/about us 3.jpg" class="img3">
+
+</div>
+
+<div class="about-content" data-aos="fade-left">
+<span class="about-tag">ABOUT US</span>
+
+<h2>World of Illustration</h2>
+
+<p>
+World of Illustration is a creative design studio focused on delivering
+unique and impactful graphic designs that help brands stand out.
+</p>
+
+<p>
+We specialize in logo design, branding, invitations, posters,
+digital illustrations and custom graphic solutions.
+</p>
+
+<a href="#services-provide" class="about-btn">Explore More</a>
+</div>
+
+</div>
+
+</section>
+
+   <section id="services">
+
+<h2>Our Motto</h2>
+
+<div class="motto-grid">
+
+<div class="motto-box">
+<span class="number">01</span>
+<img src="images/creativity first.jpg">
+<p>Creativity First</p>
+</div>
+
+<div class="motto-box">
+<span class="number">02</span>
+<img src="images/attention to detail.jpg">
+<p>Attention to Detail</p>
+</div>
+
+<div class="motto-box">
+<span class="number">03</span>
+<img src="images/client vision matter.jpg">
+<p>Client Vision Matters</p>
+</div>
+
+<div class="motto-box">
+<span class="number">04</span>
+<img src="images/quality over quantity.jpg">
+<p>Quality Over Quantity</p>
+</div>
+
+</div>
+</section>
+
+
+    <section id="portfolio" style="background: #fafafa;">
+        <h2>Our Portfolio</h2>
+        <p style="color:#777; margin-bottom:50px;">Click a category to see the full gallery</p>
+        <div class="grid-container">
+    <a href="invites.html" style="text-decoration:none; color:inherit;">
+<div class="service-box" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/invites-thumb.jpg" alt="Invites">
+        <h3>Invitation Designs</h3>
+           </div>
+</a>
+
+            <a href="logos.html" style="text-decoration: none; color: inherit;">
+<div class="service-box" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/logos-thumb.jpg" alt="Logos">
+                    <h3>Logo Designs</h3>
+                </div>
+            </a>
+
+            <a href="posters.html" style="text-decoration: none; color: inherit;">
+<div class="service-box" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/posters-thumb.jpg" alt="Posters">
+                    <h3>Poster Designs</h3>
+                </div>
+            </a>
+
+            <a href="videos.html" style="text-decoration: none; color: inherit;">
+<div class="service-box" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/videos-thumb.jpg" alt="Videos">
+                    <h3>Video Ads</h3>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+<section id="services-provide">
+
+<h2>Services Provided </h2>
+
+<div class="services-provide-grid">
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="100">
+<img src="images/logo design.jpg">
+<h3>Logo Design</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="200">
+<img src="images/Brand Identity.jpg">
+<h3>Brand Identity</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="300">
+<img src="images/Invitations.jpg">
+<h3>custom Invitations</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="400">
+<img src="images/Wallet Card Design.jpg">
+<h3>Wallet Card Design</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="500">
+<img src="images/Visiting Card Design.jpg">
+<h3>Visiting Card Design</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="600">
+<img src="images/Poster Design.jpg">
+<h3>Poster Design</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="700">
+<img src="images/Digital Illustration.jpg">
+<h3>Digital Illustration</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="800">
+<img src="images/Social Media Graphics.jpg">
+<h3>Social Media Graphics</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="900">
+<img src="images/Custom Graphic Design.jpg">
+<h3>Custom Graphic Design</h3>
+</div>
+
+<div class="service-card" data-aos="flip-left" data-aos-delay="1000">
+<img src="images/And Many More.jpg">
+<h3>And Many More</h3>
+</div>
+
+</div>
+
+</section>
+<section class="why-section">
+    <div class="why-container">
+        
+<div class="why-left" data-aos="fade-right">
+                                  <img src="images/why choose us.jpg" alt="Why Choose Us">
+        </div>
+
+        <div class="why-right">
+            
+<div class="why-card" data-aos="fade-up">
+                <h3>Real-Time Insights</h3>
+                <p>Make smarter decisions with live data and actionable insights, delivered in real-time.</p>
+            </div>
+
+<div class="why-card" data-aos="fade-up">
+                <h3>Flexible Plans</h3>
+                <p>Choose plans that adapt to your business needs, offering unparalleled scalability.</p>
+            </div>
+
+<div class="why-card" data-aos="fade-up">
+                <h3>Secure Transactions</h3>
+                <p>Prioritize safety with cutting-edge encryption and robust security features.</p>
+            </div>
+
+<div class="why-card" data-aos="fade-up">
+                <h3>Dedicated Support</h3>
+                <p>Access expert assistance 24/7 to ensure you're never alone on your journey.</p>
+            </div>
+
+        </div>
+ </div> 
+
+</section>
+
+<section class="stats">
+
+<div class="stat-box" data-aos="zoom-in">
+<h2 class="counter" data-target="250">0</h2>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box">
+<h2 class="counter" data-target="150">0</h2>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat-box">
+<h2 class="counter" data-target="10">0</h2>
+<p>Years Experience</p>
+</div>
+
+</section>
+
+<section class="testimonial-section">
+
+<div class="testimonial-header">
+<h2>Read reviews,<br><span>ride with confidence.</span></h2>
+<p class="trust">⭐ 4.8/5 • Trusted by our clients</p>
+</div>
+
+<div class="testimonial-container">
+
+<div class="testimonial-left">
+<div class="quote">“</div>
+<h3>What our customers are saying</h3>
+</div>
+
+<div class="testimonial-right">
+
+<div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+<p>Beautiful invitation design and great service.</p>
+<div class="stars">★★★★★</div>
+<div class="client">
+<img src="images/priya sharma.png">
+<span>Priya Sharma</span>
+</div>
+</div>
+
+<div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+<p>Very creative logo design and quick delivery.</p>
+<div class="stars">★★★★★</div>
+<div class="client">
+<img src="images/rahul verma.png">
+<span>Rahul Verma</span>
+</div>
+</div>
+
+<div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
+<p>Professional work and excellent communication.</p>
+<div class="stars">★★★★★</div>
+<div class="client">
+<img src="images/Sneha Gupta.png">
+<span>Sneha Gupta</span>
+</div>
+</div>
+
+</div>
+
+</div>
+<section id="contact" class="contact-area">
+
+    <div class="contact-hero">
+        <h2>CONTACT US</h2>
+        <p>
+            Need an expert? You are more than welcome to leave your contact info
+            and we will be in touch shortly.
+        </p>
+    </div>
+
+    <div class="contact-boxes">
+
+        <!-- INSTAGRAM -->
+        <div class="contact-card">
+            <div class="icon">📸</div>
+            <h3>INSTAGRAM</h3>
+            <p>@WOI.ILLUSTRATION</p>
+            <img src="images/Insta Qr.jpg" class="insta-qr" alt="Instagram QR">
+        </div>
+
+        <!-- EMAIL -->
+        <div class="contact-card">
+            <div class="icon">✉️</div>
+            <h3>EMAIL</h3>
+            <p>tamannabaid351@gmail.com</p>
+
+            <a href="mailto:tamannabaid351@gmail.com">
+                Write to us
+            </a>
+        </div>
+
+    </div>
+
+</section>
+    <div class="footer">
+        © 2026 World of Illustration
+    </div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+duration: 1000,
+once: true
+});
+
+/* 🔥 YAHAN DAALO */
+const toggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggle.addEventListener("click", () => {
+navLinks.classList.toggle("active");
+});
+
+window.onscroll = function() {
+let scrollTop = document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let scrolled = (scrollTop / height) * 100;
+document.getElementById("progress-bar").style.width = scrolled + "%";
+};
+
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
+
+function startCounter() {
+
+if(counterStarted) return;
+
+const statsSection = document.querySelector(".stats");
+const sectionTop = statsSection.getBoundingClientRect().top;
+
+if(sectionTop < window.innerHeight - 100){
+
+counterStarted = true;
+
+counters.forEach(counter => {
+
+counter.innerText = "0";
+
+const updateCounter = () => {
+
+const target = +counter.getAttribute("data-target");
+const c = +counter.innerText;
+const increment = target / 200;
+
+if(c < target){
+counter.innerText = Math.ceil(c + increment);
+setTimeout(updateCounter,10);
+}else{
+counter.innerText = target;
+}
+
+};
+
+updateCounter();
+
+});
+
+}
+
+}
+
+window.addEventListener("scroll", startCounter);
+
+function showGallery(id) {
+var galleries = document.getElementsByClassName('gallery-section');
+
+for (var i = 0; i < galleries.length; i++) {
+galleries[i].style.display = 'none';
+}
+
+var target = document.getElementById(id);
+
+if (target) {
+target.style.display = 'block';
+target.scrollIntoView({ behavior: 'smooth' });
+}
+}
+
+</script>
